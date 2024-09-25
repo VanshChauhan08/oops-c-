@@ -1,0 +1,46 @@
+Q-4: /*4. Implement a C++ program to find the non-repeating characters in string*/
+SOURCE CODE:
+#include <iostream>
+#include <string>
+using namespace std;
+struct frequency {
+char ch;
+int freq;
+};
+ int main() {
+ frequency arr[26]; // Create an array of size 26 to store frequency of each letter
+ for (int i = 0; i < 26; i++) {
+arr[i].ch = '\0'; 
+arr[i].freq = 0;
+}
+string s;
+cout << "Enter the string: ";
+getline(cin, s);
+for (char ch : s) { // Process each character in the string
+if (isalpha(ch)) { // Check if the character is a letter
+ch = tolower(ch); // Convert to lowercase to handle case insensitivity
+int i = ch - 'a';
+if (arr[i].ch == '\0') {
+arr[i].ch = ch;
+arr[i].freq = 1;
+} else {
+arr[i].freq += 1;
+}
+}
+ string upd; // Generate the updated string
+for (char ch : s) {
+if (isalpha(ch)) {
+char lowerCh = tolower(ch);
+int i = lowerCh - 'a';
+if (arr[i].freq == 1) {
+upd += ch;
+} else {
+upd += ' ';
+}
+} else {
+upd += ch; // Keep non-letter characters unchanged
+}
+}
+cout << upd << endl;
+return 0;
+}
