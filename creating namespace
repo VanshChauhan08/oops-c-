@@ -1,0 +1,23 @@
+Q-3 /*Create two namespaces, Math and Physics, each containing a function calculate(). The 
+calculate() function in the Math namespace should display a message indicating a mathematical 
+calculation, while the calculate() function in the Physics namespace should display a message 
+indicating a physical calculation. Use these functions in the main program without causing naming 
+conflicts */
+SOURCE CODE:
+#include <iostream>
+using namespace std;
+namespace Math {
+ void calculate() {
+ cout << "Performing a mathematical calculation..." << endl;
+ }
+}
+namespace Physics {
+ void calculate() {
+ cout << "Performing a physical calculation..." << endl;
+ }
+}
+int main() {
+Math::calculate(); // Calling the calculate function from the Math namespace
+Physics::calculate(); // Calling the calculate function from the Physics namespace
+ return 0;
+}
